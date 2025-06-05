@@ -9,7 +9,7 @@ const PORT = 5000;
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect("YOUR_MONGODB_URL_HERE")
+mongoose.connect("mongodb+srv://Saurabh91tech::Singhsaurabh%40912237@cluster0.rtgbpxs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
   .then(() => console.log("✅ MongoDB Atlas connected successfully"))
   .catch(err => console.error("❌ MongoDB connection error:", err));
 
