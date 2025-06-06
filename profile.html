@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profile</title>
+</head>
+<body>
+  <h2>User Profile</h2>
+  <div id="profileData"></div>
+  <button onclick="logout()">Logout</button>
+
+  <script>
+    async function loadProfile() {
+      const token = localStorage.getItem('token');
+      const res = await fetch('http://localhost:5000/profile', {
+        headers: { 'Authorization': 'Bearer ' + token }
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        document.getElementById('profileData').innerText = 
+          `Hello ${data.user.email} (ID: ${data.user.id})`;
+      } else {
+        alert(data.message);
+        window.location.href = "login.html";
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem('token');
+      window.location.href = "login.html";
+    }
+
+    loadProfile();
+  </script>
+</body>
+</html>
