@@ -1,37 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Profile</title>
 </head>
 <body>
-  <h2>User Profile</h2>
-  <div id="profileData"></div>
+  <h2>Your Profile</h2>
+  <div id="profile"></div>
   <button onclick="logout()">Logout</button>
 
   <script>
-    async function loadProfile() {
-      const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/profile', {
-        headers: { 'Authorization': 'Bearer ' + token }
-      });
+    const token = localStorage.getItem('token');
 
-      const data = await res.json();
-
-      if (res.ok) {
-        document.getElementById('profileData').innerText = 
-          `Hello ${data.user.email} (ID: ${data.user.id})`;
-      } else {
-        alert(data.message);
-        window.location.href = "login.html";
-      }
+    if (!token) {
+      alert('You must log in first');
+      window.location.href = 'login.html';
     }
+
+    fetch('http://localhost:5000/profile', {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.user) {
+        document.getElementById('profile').innerText = JSON.stringify(data.user, null, 2);
+      } else {
+        alert('Invalid token');
+        window.location.href = 'login.html';
+      }
+    });
 
     function logout() {
       localStorage.removeItem('token');
-      window.location.href = "login.html";
+      alert('Logged out');
+      window.location.href = 'login.html';
     }
-
-    loadProfile();
   </script>
 </body>
 </html>

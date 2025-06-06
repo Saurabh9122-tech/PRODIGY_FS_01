@@ -6,7 +6,7 @@ const cors = require('cors');
 
 const app = express();
 const PORT = 5000;
-const SECRET_KEY = 'your_jwt_secret_key'; // Change this in real project
+const SECRET_KEY = 'your_jwt_secret_key'; // Change this to a strong secret in production
 
 app.use(cors());
 app.use(express.json());
@@ -72,9 +72,15 @@ app.post('/login', async (req, res) => {
   }
 });
 
-// Protected route
+// Protected Profile Route
 app.get('/profile', authenticateToken, (req, res) => {
   res.json({ message: "Welcome to your profile", user: req.user });
+});
+
+// Logout route (client side clears token, backend optional)
+app.post('/logout', (req, res) => {
+  // Invalidate token on client side (e.g., remove from localStorage)
+  res.json({ message: "Logged out successfully" });
 });
 
 app.listen(PORT, () => {
