@@ -33,3 +33,16 @@ app.use((req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
+const fs = require('fs');
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'login.html'));
+});
+
+app.get('/signup.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'signup.html'));
+});
+
+app.get('/profile.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'profile.html'));
+});
