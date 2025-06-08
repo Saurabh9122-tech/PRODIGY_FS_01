@@ -2,53 +2,84 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Profile</title>
+  <title>Your Profile</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f3f4f6;
+      background: linear-gradient(to right, #74ebd5, #9face6);
+      margin: 0;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      margin: 0;
     }
-    .container {
-      background: white;
+
+    .card {
+      background: #fff;
       padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       text-align: center;
+      width: 350px;
+    }
+
+    h2 {
+      color: #444;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 16px;
+      background-color: #ef4444;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    button:hover {
+      background-color: #dc2626;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h2>Welcome!</h2>
-    <p id="message">Loading profile...</p>
+  <div class="card">
+    <h2 id="welcome">Loading profile...</h2>
+    <button onclick="logout()">Logout</button>
   </div>
 
   <script>
-    const token = localStorage.getItem('token');
-    if (!token) {
-      alert('Please login first');
-      window.location.href = 'login.html';
+    async function fetchProfile() {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert("Not logged in");
+        window.location.href = "login.html";
+        return;
+      }
+
+      const res = await fetch('/api/profile', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        document.getElementById('welcome').innerText = `Welcome, ${data.user.email}`;
+      } else {
+        alert("Session expired or invalid token");
+        localStorage.removeItem('token');
+        window.location.href = "login.html";
+      }
     }
 
-    fetch('/api/profile', {
-      headers: {
-        'Authorization': 'Bearer ' + token
-      }
-    })
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById('message').innerText = data.message + ' ' + data.user.email;
-    })
-    .catch(() => {
-      alert('Invalid or expired token');
+    function logout() {
       localStorage.removeItem('token');
-      window.location.href = 'login.html';
-    });
+      window.location.href = "login.html";
+    }
+
+    fetchProfile();
   </script>
 </body>
 </html>
