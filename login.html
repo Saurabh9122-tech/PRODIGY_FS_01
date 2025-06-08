@@ -2,47 +2,74 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Login</title>
+  <title>Login - Prodigy FS</title>
+  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #8360c3, #2ebf91);
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
     }
+
     .container {
-      background: #fff;
-      padding: 30px 40px;
-      border-radius: 10px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.25);
-      width: 300px;
-    }
-    h2 {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
       text-align: center;
+      width: 350px;
+    }
+
+    h2 {
       color: #333;
     }
-    input {
+
+    input[type="email"],
+    input[type="password"] {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       margin: 10px 0;
-      border-radius: 5px;
       border: 1px solid #ccc;
+      border-radius: 8px;
     }
+
     button {
-      width: 100%;
-      background-color: #2ebf91;
+      background-color: #3b82f6;
       color: white;
-      padding: 10px;
+      padding: 12px 20px;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: 0.3s;
+      margin-top: 10px;
+      width: 100%;
+      font-size: 16px;
     }
+
     button:hover {
-      background-color: #239e77;
+      background-color: #2563eb;
+    }
+
+    .register-link {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #444;
+    }
+
+    .register-link button {
+      background-color: transparent;
+      color: #2563eb;
+      border: none;
+      cursor: pointer;
+      text-decoration: underline;
+      font-size: 14px;
+    }
+
+    .register-link button:hover {
+      color: #1d4ed8;
     }
   </style>
 </head>
@@ -50,30 +77,37 @@
   <div class="container">
     <h2>Login</h2>
     <form id="loginForm">
-      <input type="email" placeholder="Email" name="email" required />
-      <input type="password" placeholder="Password" name="password" required />
+      <input type="email" placeholder="Email" required id="email" />
+      <input type="password" placeholder="Password" required id="password" />
       <button type="submit">Login</button>
     </form>
+    
+    <div class="register-link">
+      Don't have an account?
+      <button onclick="window.location.href='signup.html'">Register</button>
+    </div>
   </div>
 
   <script>
-    document.getElementById('loginForm').addEventListener('submit', async function(e) {
+    const form = document.getElementById('loginForm');
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-
-      const email = this.email.value;
-      const password = this.password.value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
 
       const res = await fetch('/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email, password }),
       });
 
       const data = await res.json();
-      alert(data.message);
       if (res.ok) {
         localStorage.setItem('token', data.token);
+        alert("Login successful!");
         window.location.href = 'profile.html';
+      } else {
+        alert(data.message || "Login failed");
       }
     });
   </script>
