@@ -3,40 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <title>Profile</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-  <h2>Your Profile</h2>
-  <div id="profile"></div>
-  <button onclick="logout()">Logout</button>
+  <div class="container">
+    <h2>Welcome!</h2>
+    <p id="message">Loading profile...</p>
+  </div>
 
   <script>
     const token = localStorage.getItem('token');
-
     if (!token) {
-      alert('You must log in first');
+      alert('Please login first');
       window.location.href = 'login.html';
     }
 
-    fetch('http://localhost:5000/profile', {
+    fetch('/api/profile', {
       headers: {
-        'Authorization': `Bearer ${token}`
+        'Authorization': 'Bearer ' + token
       }
     })
     .then(res => res.json())
     .then(data => {
-      if (data.user) {
-        document.getElementById('profile').innerText = JSON.stringify(data.user, null, 2);
-      } else {
-        alert('Invalid token');
-        window.location.href = 'login.html';
-      }
-    });
-
-    function logout() {
+      document.getElementById('message').innerText = data.message + ' ' + data.user.email;
+    })
+    .catch(() => {
+      alert('Invalid or expired token');
       localStorage.removeItem('token');
-      alert('Logged out');
       window.location.href = 'login.html';
-    }
+    });
   </script>
 </body>
 </html>
