@@ -3,46 +3,38 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
 
-const authRoutes = require('./routes/auth'); // <-- your auth logic
+const authRoutes = require('./routes/auth');
 
 const app = express();
 const PORT = 5000;
 
-// ✅ Middleware
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-// ✅ Serve frontend files like login.html, signup.html, profile.html
-app.use(express.static(path.join(__dirname)));
+// Serve static frontend files
+app.use(express.static(path.join(__dirname, 'public')));
 
-// ✅ MongoDB Connection
+// MongoDB connection
 mongoose
   .connect("mongodb+srv://Saurabh91tech:Singhsaurabh%40912237@cluster0.rtgbpxs.mongodb.net/userDB?retryWrites=true&w=majority&appName=Cluster0")
   .then(() => console.log("✅ MongoDB connected"))
   .catch((err) => console.error("❌ MongoDB error:", err));
 
-// ✅ Routes
-app.use('/api', authRoutes); // All login/register/profile routes come from /routes/auth.js
+// Routes
+app.use('/api', authRoutes);
 
-// ✅ Fallback route (optional): if user tries unknown path
+// Route to serve login.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'login.html'));
+});
+
+// Optional fallback for unmatched routes
 app.use((req, res) => {
   res.status(404).send("❌ Page not found");
 });
 
-// ✅ Start server
+// Start server
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
-});
-const fs = require('fs');
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'login.html'));
-});
-
-app.get('/signup.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'signup.html'));
-});
-
-app.get('/profile.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'profile.html'));
 });

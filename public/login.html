@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Login - Prodigy FS</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -14,7 +13,6 @@
       height: 100vh;
       margin: 0;
     }
-
     .container {
       background: white;
       padding: 30px;
@@ -23,7 +21,6 @@
       text-align: center;
       width: 350px;
     }
-
     h2 {
       color: #333;
     }
@@ -96,7 +93,7 @@
     const password = document.getElementById('password').value;
 
     const res = await fetch('/api/login', {
-      method: 'POST',
+      method: 'POST' ,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
     });
