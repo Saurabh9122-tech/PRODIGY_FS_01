@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Profile</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #74ebd5, #9face6);
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 350px;
+    }
+
+    h2 {
+      color: #444;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 16px;
+      background-color: #ef4444;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    button:hover {
+      background-color: #dc2626;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2 id="welcome">Loading profile...</h2>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <script>
+    async function fetchProfile() {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert("Not logged in");
+        window.location.href = "login.html";
+        return;
+      }
+
+      const res = await fetch('/api/profile', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        document.getElementById('welcome').innerText = `Welcome, ${data.user.email}`;
+      } else {
+        alert("Session expired or invalid token");
+        localStorage.removeItem('token');
+        window.location.href = "login.html";
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem('token');
+      window.location.href = "login.html";
+    }
+
+    fetchProfile();
+  </script>
+</body>
+</html>
