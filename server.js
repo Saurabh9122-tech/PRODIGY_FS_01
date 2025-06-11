@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
 const authRoutes = require('./routes/auth');
+require('dotenv').config();
 
 const app = express();
 const PORT = 5000;
@@ -16,7 +17,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // ✅ MongoDB connection
 mongoose
-  .connect("mongodb+srv://Saurabh91tech:Singhsaurabh%40912237@cluster0.rtgbpxs.mongodb.net/userDB?retryWrites=true&w=majority&appName=Cluster0")
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("✅ MongoDB connected"))
   .catch((err) => console.error("❌ MongoDB error:", err));
 
