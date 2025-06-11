@@ -13,7 +13,10 @@
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
+<<<<<<< HEAD
     "dotenv": "^16.5.0",
+=======
+>>>>>>> d2c6ec1a75cb0a8292be4355b02cf9a5f6eb0962
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.15.1"
