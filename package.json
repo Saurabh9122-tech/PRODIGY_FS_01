@@ -2,21 +2,18 @@
   "name": "prodigy_fs_01",
   "version": "1.0.0",
   "description": "Author - Saurabh Kumar",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Saurabh Kumar",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
-<<<<<<< HEAD
     "dotenv": "^16.5.0",
-=======
->>>>>>> d2c6ec1a75cb0a8292be4355b02cf9a5f6eb0962
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.15.1"
