@@ -127,7 +127,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDdiZDhmM
 
 Test routes /api/register, /api/login, /api/profile
 
-📤 Deployment (Optional)
+📤 Deployment
 This project can be deployed to Render, Heroku, or Railway. Ensure you set:
 
 MONGODB_URI as environment variable
@@ -140,8 +140,6 @@ GitHub: @Saurabh9122-tech
 LinkedIn: www.linkedin.com/in/saurabh-kumar-9999s
 Project: Prodigy InfoTech Full Stack Web Dev Internship – Task 01
 
-📃 License
-This project is licensed under the MIT License.
 
 🙏 Acknowledgements
 Prodigy InfoTech Internship Team
