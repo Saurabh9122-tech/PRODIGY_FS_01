@@ -93,52 +93,50 @@ Returns user data.
 
 # 📁 **Project Structure**
 
-PRODIGY_FS_01/
-├── routes/
-│   └── auth.js         
-├── models/
-│   └── User.js         
-├── public/
-│   ├── login.html
-│   ├── signup.html
-│   ├── profile.html
-│   └── ( inline styles)
-├── server.js          
-├── package.json
-└── .env 
+PRODIGY_FS_01/  
+├── routes/  
+│   └── auth.js           
+├── models/  
+│   └── User.js           
+├── public/  
+│   ├── login.html  
+│   ├── signup.html  
+│   ├── profile.html  
+│   └── ( inline styles)  
+├── server.js            
+├── package.json     
+└── .env   
 
 # 🔐 **Security**
-Passwords are hashed using bcryptjs before storing in MongoDB
+Passwords are hashed using bcryptjs before storing in MongoDB  
 
-JWT tokens are used for authentication and stored in localStorage
+JWT tokens are used for authentication and stored in localStorage  
 
-Routes are protected using token-based middleware
+Routes are protected using token-based middleware  
 
-CORS and input validation implemented
+CORS and input validation implemented  
 
 # 🧪 **Testing** ( via Thunder Client / Postman)
-Use Thunder Client in VS Code
-Set headers:
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDdiZDhmMzg5ZjAwMjc0OTY3ODBjOCIsImVtYWlsIjoidGVzdHVzZXJAZXhhbXBsZS5jb20iLCJpYXQiOjE3NDk1MzIxMDYsImV4cCI6MTc0OTUzNTcwNn0.n5hsNkuDw_fHAfNHgXpxpzwuNYDq8_yDqQzoE102qMU
-
-Test routes /api/register, /api/login, /api/profile
+Use Thunder Client in VS Code  
+Set headers:  
+Content-Type: application/json  
+Authorization: Bearer   eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDdiZDhmMzg5ZjAwMjc0OTY3ODBjOCIsImVtYWlsIjoidGVzdHVzZXJAZXhhbXBsZS5jb20iLCJpYXQiOjE3NDk1MzIxMDYsImV4cCI6MTc0OTUzNTcwNn0.n5hsNkuDw_fHAfNHgXpxpzwuNYDq8_yDqQzoE102qMU  Test routes /api/register, /api/login, /api/profile  
 
 # 📤 **Deployment**
-This project can be deployed to Render, Heroku, or Railway. Ensure you set:
-MONGODB_URI as environment variable
-JWT_SECRET for token signing
+This project can be deployed to Render, Heroku, or Railway. Ensure you set:  
+MONGODB_URI as environment variable  
+JWT_SECRET for token signing  
 
 # 👤 **Author**
 **Saurabh Kumar**
-GitHub:<u>[@Saurabh kumar](https://github.com/Saurabh9122-tech/)</u> 
-LinkedIn:<u>[Saurabh Kumar]</u>(www.linkedin.com/in/saurabh-kumar-9999s/) 
-Project: Prodigy InfoTech Full Stack Web Dev Internship – Task 01
+GitHub:<u>[@Saurabh kumar](https://github.com/Saurabh9122-tech/)</u>   
+LinkedIn:<u>[Saurabh Kumar](www.linkedin.com/in/saurabh-kumar-9999s/)</u>   
+Project: Prodigy InfoTech Full Stack Web Dev Internship – Task 01    
 # 📝 **License**
-This project is [MIT](https://github.com/Saurabh9122-tech/PRODIGY_FS_01/blob/main/LICENSE) licensed.
+This project is [MIT](https://github.com/Saurabh9122-tech/PRODIGY_FS_01/blob/main/LICENSE) licensed.  
 
 # 🙏**Acknowledgements**
-Prodigy InfoTech Internship Team
-[Express.js Guide](https://www.geeksforgeeks.org/node-js/express-js/)
-]JWT & Authentication Tutorials](https://www.geeksforgeeks.org/json-web-token-jwt/)
-[MongoDB Documentation](https://www.mongodb.com/docs/)
+Prodigy InfoTech Internship Team  
+[Express.js Guide](https://www.geeksforgeeks.org/node-js/express-js/)  
+[JWT & Authentication Tutorials](https://www.geeksforgeeks.org/json-web-token-jwt/)    
+[MongoDB Documentation](https://www.mongodb.com/docs/)    
