@@ -46,8 +46,6 @@ Make sure the following are installed:
 # ⚙️ Getting Started
 
 ## 1. Clone the repository
-
-```bash
 git clone https://github.com/Saurabh9122-tech/PRODIGY_FS_01.git
 cd PRODIGY_FS_01
 ## **2. Install dependencies**
@@ -137,7 +135,7 @@ GitHub:<u>[@Saurabh kumar](https://github.com/Saurabh9122-tech/)</u>
 LinkedIn:<u>[Saurabh Kumar]</u>(www.linkedin.com/in/saurabh-kumar-9999s/) 
 Project: Prodigy InfoTech Full Stack Web Dev Internship – Task 01
 # 📝 **License**
-This project is MIT licensed.
+This project is [MIT](https://github.com/Saurabh9122-tech/PRODIGY_FS_01/blob/main/LICENSE) licensed.
 
 # 🙏**Acknowledgements**
 Prodigy InfoTech Internship Team
