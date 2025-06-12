@@ -46,15 +46,14 @@ Make sure the following are installed:
 # ⚙️ Getting Started
 
 ## 1. Clone the repository
-git clone https://github.com/Saurabh9122-tech/PRODIGY_FS_01.git
+git clone https://github.com/Saurabh9122-tech/PRODIGY_FS_01.git  
 cd PRODIGY_FS_01
 ## **2. Install dependencies**
 npm install
 
 ## **3. Setup environment variables**
-Create a .env file in the root folder and add:
-
-MONGODB_URI=your_mongodb_connection_string
+Create a .env file in the root folder and add:  
+MONGODB_URI=your_mongodb_connection_string  
 JWT_SECRET=your_secret_key
 
 ## **4. Run the server**
@@ -64,32 +63,33 @@ node server.js
 ## **5. Open http://localhost:5000 in your browser to see the application.**
 
 # 🌐 **API Endpoints**
-POST /api/register
-Registers a new user.
+POST /api/register  
+Registers a new user.  
 
-Body:
+Body:  
 
-json
-Copy code
-{
-  "email": "saurabh@gmail.com",
-  "password": "123456789"
-}
-POST /api/login
-Logs in a user and returns a JWT token.
+json  
+Copy code  
+{  
+  "email": "saurabh@gmail.com",  
+  "password": "123456789"  
+}  
+POST /api/login  
+Logs in a user and returns a JWT token.  
 
-Body:
+Body:  
 
-json
-Copy code
-{
-  "email": "saurabh@gmail.com",
-  "password": "123456789"
-}
-GET /api/profile
-Protected route; requires Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDdiZDhmMzg5ZjAwMjc0OTY3ODBjOCIsImVtYWlsIjoidGVzdHVzZXJAZXhhbXBsZS5jb20iLCJpYXQiOjE3NDk1MzIxMDYsImV4cCI6MTc0OTUzNTcwNn0.n5hsNkuDw_fHAfNHgXpxpzwuNYDq8_yDqQzoE102qMU in header.
+json  
+Copy code  
+{  
+  "email": "saurabh@gmail.com",  
+  "password": "123456789"  
+}  
+GET /api/profile  
+Protected route;  
+requires Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDdiZDhmMzg5ZjAwMjc0OTY3ODBjOCIsImVtYWlsIjoidGVzdHVzZXJAZXhhbXBsZS5jb20iLCJpYXQiOjE3NDk1MzIxMDYsImV4cCI6MTc0OTUzNTcwNn0.n5hsNkuDw_fHAfNHgXpxpzwuNYDq8_yDqQzoE102qMU in header.  
 
-Returns user data.
+Returns user data.  
 
 # 📁 **Project Structure**
 
