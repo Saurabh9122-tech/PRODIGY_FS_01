@@ -18,7 +18,8 @@ A secure and modern user authentication system built with **Node.js**, **Express
 # 📸 Screenshots
 
 ### 🧾 Login Page
-![login screenshot](<Screenshot 2025-06-10 111943.png>)
+![login screenshot](<![Screenshot 2025-06-10 111943](https://github.com/user-attachments/assets/816a777e-bc7d-4d0c-9519-38dea1477621)
+>)
 
 ### 📝 Registration Page
 ![Register Screenshot](<Screenshot 2025-06-10 112002.png>)
