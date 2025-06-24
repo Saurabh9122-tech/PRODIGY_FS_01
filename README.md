@@ -26,7 +26,8 @@ A secure and modern user authentication system built with **Node.js**, **Express
 
 ### 🙍‍♂️ Profile Page
 ![Profile Screenshot](<Screenshot 2025-06-10 112037.png>)
-
+# Task Video
+[![Watch the video](https://img.youtube.com/vi/xmIyK7nlBmYUPaCE.jpg)]https://youtu.be/PdZ-Pfm3_Ao?si=xmIyK7nlBmYUPaCE)
 
 # 🛠️ Tech Stack
 
