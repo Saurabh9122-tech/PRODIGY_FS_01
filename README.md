@@ -28,7 +28,8 @@ A secure and modern user authentication system built with **Node.js**, **Express
 ![Profile Screenshot](<Screenshot 2025-06-10 112037.png>)
 # Task Video
 [![Watch the video](https://img.youtube.com/vi/xmIyK7nlBmYUPaCE.jpg)]https://youtu.be/PdZ-Pfm3_Ao?si=xmIyK7nlBmYUPaCE)
-
+# 🎬 Demo Video on YouTube
+  [Watch Now](https://youtu.be/PdZ-Pfm3_Ao)
 # 🛠️ Tech Stack
 
 - **Backend:** Node.js, Express.js, MongoDB, Mongoose, JSON Web Token (JWT), bcryptjs
@@ -48,7 +49,7 @@ Make sure the following are installed:
 # ⚙️ Getting Started
 
 ## 1. Clone the repository
-git clone https://github.com/Saurabh9122-tech/PRODIGY_FS_01.git  
+[git clone](https://github.com/Saurabh9122-tech/PRODIGY_FS_01.git)  
 cd PRODIGY_FS_01
 ## **2. Install dependencies**
 npm install
