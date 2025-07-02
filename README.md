@@ -67,22 +67,12 @@ node server.js
 # 🌐 **API Endpoints**
 POST /api/register  
 Registers a new user.  
-
-Body:  
-
-json  
-Copy code  
 {  
   "email": "saurabh@gmail.com",  
   "password": "123456789"  
 }  
 POST /api/login  
-Logs in a user and returns a JWT token.  
-
-Body:  
-
-json  
-Copy code  
+Logs in a user and returns a JWT token.    
 {  
   "email": "saurabh@gmail.com",  
   "password": "123456789"  
